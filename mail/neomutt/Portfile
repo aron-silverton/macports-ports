@@ -4,7 +4,7 @@ PortSystem          1.0
 PortGroup           github 1.0
 PortGroup           legacysupport 1.1
 
-github.setup        neomutt neomutt 20200925
+github.setup        neomutt neomutt 20210205
 revision            0
 categories          mail
 platforms           darwin
@@ -21,9 +21,9 @@ long_description    Mutt is a small but very powerful text-based MIME \
                     groups of messages.
 homepage            https://neomutt.org
 
-checksums           rmd160  37978a334d56cd97ce3d44ab810dc984008b6e0b \
-                    sha256  d3810dd665a839d5dfb4130a837ae6d0735a634bd2d936db21051ba160b4bf6e \
-                    size    3441887
+checksums           rmd160  1fce42161682cf3923c7100e8ef838afabae5664 \
+                    sha256  b288e6bf46073379343a4b88b8b43fe5e79591bf87067ce6269a935940cfa830 \
+                    size    3477600
 
 depends_lib         path:bin/perl:perl5 \
                     path:lib/libssl.dylib:openssl \
@@ -40,13 +40,13 @@ post-patch {
               doxygen/doxygen.conf
 
     reinplace -W ${worksrcpath} "s|/usr/bin/|${prefix}/bin/|g" \
-              contrib/sample.neomuttrc-tlr \
+              contrib/samples/sample.neomuttrc-tlr \
               contrib/smime_keys \
-              contrib/smime_keys_test.pl \
+              contrib/samples/smime_keys_test.pl \
               docs/manual.xml.head
     reinplace -W ${worksrcpath} "s|/usr/libexec/|${prefix}/libexec/|g" \
-              contrib/gpg.rc \
-              contrib/smime.rc \
+              contrib/samples/gpg.rc \
+              contrib/samples/smime.rc \
               docs/manual.xml.head
     reinplace -W ${worksrcpath} "s|/usr/local/|${prefix}/|g" \
               init.h \
